@@ -1,0 +1,578 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #26352c;
+    background: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: white;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #176b45;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #26352c;
+    font-weight: bold;
+}
+
+.btn-login {
+    background: #176b45;
+    color: white;
+    padding: 11px 22px;
+    border-radius: 7px;
+}
+
+.hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+    background: #eaf5ed;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    color: #176b45;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 45px;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+h1 span {
+    color: #176b45;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn-principal {
+    display: inline-block;
+    background: #176b45;
+    color: white;
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.campanhas {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.subtitulo {
+    color: #718078;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+    border: 1px solid #e2eae4;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: #176b45;
+}
+
+.card p {
+    line-height: 1.6;
+    color: #647168;
+}
+
+.sobre {
+    background: #f3f7f3;
+    padding: 65px 12%;
+    text-align: center;
+}
+
+.sobre p {
+    max-width: 750px;
+    margin: 15px auto;
+    line-height: 1.8;
+}
+
+footer {
+    background: #176b45;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 7%;
+    }
+}
+
+/* Páginas de cadastro e login */
+
+.auth-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: #eaf5ed;
+}
+
+.auth-card {
+    background: white;
+    width: 100%;
+    max-width: 430px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+    color: #176b45;
+    text-align: center;
+}
+
+.auth-card > p {
+    text-align: center;
+    color: #718078;
+    margin-bottom: 25px;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-card label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.auth-card input {
+    padding: 13px;
+    border: 1px solid #d5ded7;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.auth-card input:focus {
+    outline: 2px solid #176b45;
+}
+
+.auth-card button {
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.auth-link {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: #176b45;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Página de campanhas */
+
+.campanhas-topo {
+    background: #eaf5ed;
+    padding: 65px 8%;
+    text-align: center;
+}
+
+.campanhas-topo h1 {
+    color: #176b45;
+    font-size: 38px;
+}
+
+.campanhas-topo p {
+    color: #647168;
+    line-height: 1.7;
+}
+
+.lista-campanhas {
+    padding: 55px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.campanha-card {
+    background: white;
+    border: 1px solid #e2eae4;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.campanha-imagem {
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+}
+
+.reciclagem {
+    background: #e2f2e5;
+}
+
+.voluntariado {
+    background: #e5edf7;
+}
+
+.sustentabilidade {
+    background: #f0f3df;
+}
+
+.campanha-conteudo {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.status-campanha {
+    color: #176b45;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.campanha-conteudo h2 {
+    color: #26352c;
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.campanha-conteudo p {
+    color: #647168;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.campanha-detalhe {
+    font-size: 14px;
+    margin-bottom: 20px !important;
+}
+
+.campanha-conteudo button {
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.destinacao {
+    background: #eaf5ed;
+    padding: 55px 10%;
+    text-align: center;
+}
+
+.destinacao h2 {
+    color: #176b45;
+}
+
+.destinacao p {
+    max-width: 750px;
+    margin: 15px auto;
+    line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+    .lista-campanhas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .lista-campanhas {
+        grid-template-columns: 1fr;
+        padding: 35px 6%;
+    }
+
+    .campanhas-topo h1 {
+        font-size: 30px;
+    }
+}
+
+/* Painel do voluntário */
+
+.painel-boasvindas {
+    background: #eaf5ed;
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.painel-boasvindas h1 {
+    font-size: 34px;
+    color: #176b45;
+}
+
+.painel-boasvindas p {
+    font-size: 17px;
+    color: #647168;
+    margin-top: 10px;
+}
+
+.painel-campanhas {
+    padding: 55px 8%;
+}
+
+.painel-campanhas h2 {
+    text-align: center;
+    color: #176b45;
+}
+
+.painel-subtitulo {
+    text-align: center;
+    color: #718078;
+    margin-bottom: 35px;
+}
+
+.btn-painel {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #176b45;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-painel:hover {
+    background: #105536;
+}
+
+.painel-informacao {
+    background: #eaf5ed;
+    padding: 45px 10%;
+    text-align: center;
+}
+
+.painel-informacao h2 {
+    color: #176b45;
+}
+
+.painel-informacao p {
+    max-width: 750px;
+    margin: 15px auto;
+    line-height: 1.8;
+    color: #647168;
+}
+
+/* Mensagem quando não existem inscrições */
+
+.sem-campanhas {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: #f3f7f3;
+    padding: 45px 20px;
+    border-radius: 12px;
+}
+
+.sem-campanhas h3 {
+    color: #176b45;
+    margin-bottom: 12px;
+}
+
+.sem-campanhas p {
+    color: #647168;
+    margin-bottom: 20px;
+}
+
+/* ===== PAINEL ADMINISTRATIVO ===== */
+
+main.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+main.container > h2 {
+    color: #234b36;
+    margin-bottom: 10px;
+}
+
+main.container > p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+main.container section {
+    margin-bottom: 35px;
+}
+
+main.container .auth-card {
+    width: 100%;
+    max-width: 650px;
+    margin: 25px auto 40px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+main.container .auth-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#formCampanha {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#formCampanha label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+#formCampanha input,
+#formCampanha textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #cbd8ce;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#formCampanha textarea {
+    resize: vertical;
+}
+
+#formCampanha button {
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: #26734d;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#formCampanha button:hover {
+    background-color: #1c593b;
+}
+
+#formCampanha #cancelarEdicao {
+    background-color: #777;
+}
+
+#listaCampanhas,
+#listaInscricoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+#listaCampanhas .card,
+#listaInscricoes .card {
+    padding: 22px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+#listaCampanhas .card button {
+    margin: 8px 5px 0 0;
+    padding: 9px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    main.container {
+        width: 92%;
+    }
+
+    main.container .auth-card {
+        padding: 20px;
+    }
+}

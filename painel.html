@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Voluntário | EcoAção</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">♻ EcoAção</div>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="campanhas.html">Campanhas</a>
+            <a href="#" id="sair">Sair</a>
+        </nav>
+    </header>
+
+  
+<main>
+
+    <section class="painel-boasvindas">
+        <h1>Olá, <span id="nomeUsuario">Voluntário</span>!</h1>
+
+        <p>
+            Seja bem-vindo ao EcoAção.
+            Confira as campanhas disponíveis e participe!
+        </p>
+    </section>
+
+    
+<section class="painel-campanhas">
+
+    <h2>Minhas campanhas</h2>
+
+    <p class="painel-subtitulo">
+        Aqui estão as campanhas nas quais você demonstrou interesse.
+    </p>
+
+    <div class="cards" id="minhasCampanhas">
+        <!-- As campanhas serão carregadas pelo JavaScript -->
+    </div>
+
+</section>
+
+
+        <div class="cards">
+
+            <article class="card">
+                <div class="card-icon">♻️</div>
+
+                <h3>Materiais recicláveis</h3>
+
+                <p>
+                    Participe da arrecadação de papel, papelão,
+                    plástico e outros materiais recicláveis.
+                </p>
+
+                <a href="campanhas.html" class="btn-painel">
+                    Ver campanha
+                </a>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🤝</div>
+
+                <h3>Organização de materiais</h3>
+
+                <p>
+                    Colabore na separação e organização
+                    dos materiais arrecadados.
+                </p>
+
+                <a href="campanhas.html" class="btn-painel">
+                    Ver campanha
+                </a>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🌱</div>
+
+                <h3>Conscientização ambiental</h3>
+
+                <p>
+                    Ajude a incentivar práticas sustentáveis
+                    entre os estudantes.
+                </p>
+
+                <a href="campanhas.html" class="btn-painel">
+                    Ver campanha
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="painel-informacao">
+        <h2>Faça parte dessa transformação!</h2>
+
+        <p>
+            Cada atitude contribui para uma comunidade
+            mais sustentável. Participe das nossas ações
+            e ajude a construir um futuro melhor.
+        </p>
+    </section>
+
+</main>
+
+
+    
+
+<script>
+    const usuario = sessionStorage.getItem("ecoacaoUsuarioLogado");
+
+    if (!usuario) {
+        window.location.href = "login.html";
+    } else {
+
+        const dados = JSON.parse(usuario);
+
+        // Mostrar nome do estudante
+        document.getElementById("nomeUsuario").textContent =
+            dados.nome;
+
+        // Buscar inscrições salvas
+        const inscricoes = JSON.parse(
+            localStorage.getItem("ecoacaoInscricoes")
+        ) || [];
+
+        // Filtrar somente as campanhas do estudante logado
+        const minhasInscricoes = inscricoes.filter(function(item) {
+            return item.email === dados.email;
+        });
+
+        const container = document.getElementById("minhasCampanhas");
+
+        if (minhasInscricoes.length === 0) {
+
+            container.innerHTML = `
+                <div class="sem-campanhas">
+                    <h3>Você ainda não participa de nenhuma campanha.</h3>
+                    <p>Conheça nossas iniciativas e demonstre seu interesse!</p>
+                    <a href="campanhas.html" class="btn-painel">
+                        Ver campanhas disponíveis
+                    </a>
+                </div>
+            `;
+
+        } else {
+
+            minhasInscricoes.forEach(function(item) {
+
+                const card = document.createElement("article");
+                card.className = "card";
+
+                const titulo = document.createElement("h3");
+                titulo.textContent = item.campanha;
+
+                const descricao = document.createElement("p");
+                descricao.textContent =
+                    "Você demonstrou interesse nesta campanha.";
+
+                const status = document.createElement("span");
+                status.className = "status-campanha";
+                status.textContent = "Interesse registrado";
+
+                card.appendChild(status);
+                card.appendChild(titulo);
+                card.appendChild(descricao);
+
+                container.appendChild(card);
+            });
+
+        }
+    }
+
+    // Sair da conta
+    document.getElementById("sair").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        sessionStorage.removeItem("ecoacaoUsuarioLogado");
+
+        window.location.href = "index.html";
+    });
+</script>
+
+
+
+</body>
+</html>

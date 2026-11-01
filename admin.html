@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - EcoAção</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>EcoAção | Administração</h1>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="campanhas.html">Campanhas</a>
+                <a href="#" id="sair">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Painel administrativo</h2>
+        <p>Gerencie as campanhas e acompanhe as inscrições.</p>
+
+        <section class="auth-card">
+    <h2 id="tituloFormulario">Criar nova campanha</h2>
+
+    <form id="formCampanha">
+        <label for="titulo">Nome da campanha:</label>
+        <input type="text" id="titulo" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" rows="4" required></textarea>
+
+        <label for="objetivo">Objetivo:</label>
+        <textarea id="objetivo" rows="3" required placeholder="Ex: Incentivar a participação dos estudantes..."></textarea>
+
+        <button type="submit" id="botaoSalvar">Cadastrar campanha</button>
+        <button type="button" id="cancelarEdicao" hidden>Cancelar edição</button>
+    </form>
+</section>
+
+        <section>
+            <h2>Campanhas cadastradas</h2>
+            <div id="listaCampanhas" class="cards"></div>
+        </section>
+
+        <section>
+            <h2>Inscrições e demonstrações de interesse</h2>
+            <div id="listaInscricoes" class="cards"></div>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

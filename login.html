@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | EcoAção</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">♻ EcoAção</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="cadastro.html">Cadastrar-se</a>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h2>Bem-vindo de volta!</h2>
+            <p>Acesse sua conta de voluntário.</p>
+
+            <form id="loginForm">
+                <label for="emailLogin">E-mail</label>
+                <input type="email" id="emailLogin" required placeholder="Seu e-mail">
+
+                <label for="senhaLogin">Senha</label>
+                <input type="password" id="senhaLogin" required placeholder="Sua senha">
+
+                <button type="submit" class="btn-principal">
+                    Entrar
+                </button>
+            </form>
+
+            <p id="mensagem"></p>
+
+            <p class="auth-link">
+                Ainda não possui cadastro?
+                <a href="cadastro.html">Cadastre-se</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
