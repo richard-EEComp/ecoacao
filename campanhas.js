@@ -48,6 +48,12 @@ document.addEventListener("DOMContentLoaded", function() {
     function mostrarCampanhas() {
         lista.innerHTML = "";
 
+        // Verifica quem está logado para controlar a exibição do botão de interesse
+        const usuario = JSON.parse(
+            sessionStorage.getItem("ecoacaoUsuarioLogado")
+        );
+        const isAdmin = usuario && usuario.tipo === "admin";
+
         campanhas.forEach((campanha, indice) => {
             const card = document.createElement("article");
             card.className = "campanha-card";
@@ -74,12 +80,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 conteudo.appendChild(objetivo);
             }
 
-            const botao = document.createElement("button");
-            botao.className = "btn-principal participar";
-            botao.textContent = "Tenho interesse";
-            botao.dataset.indice = indice;
+            // Se NÃO for administrador, mostra o botão de interesse
+            if (!isAdmin) {
+                const botao = document.createElement("button");
+                botao.className = "btn-principal participar";
+                botao.textContent = "Tenho interesse";
+                botao.dataset.indice = indice;
+                conteudo.appendChild(botao);
+            } else {
+                const aviso = document.createElement("p");
+                aviso.className = "campanha-detalhe";
+                aviso.innerHTML = "<em>(Modo Administrador - Visualização)</em>";
+                conteudo.appendChild(aviso);
+            }
 
-            conteudo.appendChild(botao);
             card.appendChild(conteudo);
             lista.appendChild(card);
         });
